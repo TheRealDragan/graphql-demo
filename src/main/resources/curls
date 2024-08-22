@@ -1,0 +1,39 @@
+CREATE USER:
+
+curl --location --request POST 'http://localhost:8080/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "query": "mutation { createUser(input: {name: \"John Doe\", email: \"johndoe@example.com\"}) { id name email } }"
+}
+'
+
+UPDATE USER:
+
+curl --location --request POST 'http://localhost:8080/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "query": "mutation { updateUser(id: 1, input: { name: \"Johnathan Doe\", email: \"johnathan.doe@example.com\" }) { id name email } }"
+}
+'
+
+
+DELETE USER:
+
+
+curl --location --request POST 'http://localhost:8080/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "query": "mutation { deleteUser(id: 1) { id name email } }"
+}
+'
+
+
+LIST USERS:
+
+
+curl --location --request POST 'http://localhost:8080/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "query": "query { users { id name email } }"
+}
+'
